@@ -15,7 +15,7 @@ PROMPT='`left_prompt`'
 
 # Display git branch names with color
 function rprompt_git_current_branch {
-  local branch_name st branch_status status_color
+  local branch_name st status_color
  
   if [ ! -e ".git" ]; then
     # Not git managed.
@@ -25,28 +25,23 @@ function rprompt_git_current_branch {
   st=`git status 2> /dev/null`
   if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
     # Already committed
-    branch_status="💫"
-		status_color="%F{green}"
+    status_color="%F{green}"
   elif [[ -n `echo "$st" | grep "^Untracked files"` ]]; then
-    branch_status="📮"
-		status_color="%F{red}"
+    status_color="%F{red}"
   elif [[ -n `echo "$st" | grep "^Changes not staged for commit"` ]]; then
-    branch_status="🚧"
-		status_color="%F{red}"
+    status_color="%F{red}"
   elif [[ -n `echo "$st" | grep "^Changes to be committed"` ]]; then
-    branch_status="🚀"
-		status_color="%F{yellow}"
+    status_color="%F{yellow}"
   elif [[ -n `echo "$st" | grep "^rebase in progress"` ]]; then
     # Conflicts occur
-    echo "%F{red}💥 no branch"
+    echo "%F{red}no branch%f"
     return
   else
     # other cases
-    branch_status="🤔"
-		status_color="%F{blue}"
+    status_color="%F{blue}"
   fi
 
-  echo "${branch_status} in ${status_color}${branch_name}%f"
+  echo "${status_color}${branch_name}%f"
 }
  
 # Referencing variables
@@ -54,7 +49,3 @@ setopt prompt_subst
  	
 # Right Prompt
 RPROMPT='`rprompt_git_current_branch`'
-
-# PATH
-
-export PATH="/usr/local/bin:$PATH"
