@@ -18,7 +18,10 @@ config.initial_rows = 50
 config.initial_cols = 150
 
 -- Font 
-config.font = wezterm.font("SF Mono", {weight="Light", stretch="Normal", style="Normal"})
+config.font = wezterm.font_with_fallback ({
+  { family = "SF Mono", weight = "Light", style = "Normal" },
+  { family = "Apple Color Emoji", weight = "Regular" }
+})
 config.font_size = 12
 config.line_height = 1.2
 
