@@ -2,7 +2,7 @@
 
 function left_prompt {
   if [ $(echo $?) = 0 ]; then
-    color_code=248
+    color_code=015
   else
     color_code=208
   fi
