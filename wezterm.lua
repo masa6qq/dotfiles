@@ -16,6 +16,7 @@ config.window_background_opacity = 0.90
 -- Window
 config.initial_rows = 50
 config.initial_cols = 150
+config.enable_scroll_bar = true
 config.hide_tab_bar_if_only_one_tab = true
 config.use_fancy_tab_bar = false
 
