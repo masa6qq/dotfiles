@@ -20,6 +20,8 @@ call dein#add(s:dein_src)
 "call dein#add('Shougo/neosnippet.vim')
 "call dein#add('Shougo/neosnippet-snippets')
 call dein#add('ayu-theme/ayu-vim')
+call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 }) 
+call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
 
 " Finish Dein initialization (required)
 call dein#end()
@@ -57,3 +59,6 @@ colorscheme ayu
 
 " Show line numbers
 set number
+
+" Set key maps
+nnoremap <C-p> :FZF<CR>

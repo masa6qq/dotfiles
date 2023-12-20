@@ -49,3 +49,5 @@ setopt prompt_subst
  	
 # Right Prompt
 RPROMPT='`rprompt_git_current_branch`'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
