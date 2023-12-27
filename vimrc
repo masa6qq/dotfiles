@@ -63,5 +63,13 @@ colorscheme ayu
 " Show line numbers
 set number
 
-" Set key maps
+" -----------------------
+" Key maps
+" -----------------------
+
+" Show files
 nnoremap <C-p> :FZF<CR>
+
+" Set left and right keys in insert mode
+inoremap <C-b> <Left>
+inoremap <C-f> <Right>
