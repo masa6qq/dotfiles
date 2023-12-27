@@ -73,3 +73,6 @@ nnoremap <C-p> :FZF<CR>
 " Set left and right keys in insert mode
 inoremap <C-b> <Left>
 inoremap <C-f> <Right>
+
+" Set jj as ESC
+inoremap <silent> jj <ESC>
