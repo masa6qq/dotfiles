@@ -25,6 +25,7 @@ call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
 call dein#add('cohama/lexima.vim')
 call dein#add('tpope/vim-endwise')
 call dein#add('tpope/vim-rails')
+call dein#add('scrooloose/nerdtree')
 
 " Finish Dein initialization (required)
 call dein#end()
@@ -62,6 +63,14 @@ colorscheme ayu
 
 " Show line numbers
 set number
+
+" Tab
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set autoindent
+set smartindent
 
 " -----------------------
 " Key maps
