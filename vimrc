@@ -85,3 +85,6 @@ inoremap <C-f> <Right>
 
 " Set jj as ESC
 inoremap <silent> jj <ESC>
+
+" Set NERDTree
+nnoremap <C-n> :NERDTreeToggle<CR>
