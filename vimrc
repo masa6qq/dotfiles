@@ -26,6 +26,7 @@ call dein#add('cohama/lexima.vim')
 call dein#add('tpope/vim-endwise')
 call dein#add('tpope/vim-rails')
 call dein#add('scrooloose/nerdtree')
+all dein#add('907th/vim-auto-save')
 
 " Finish Dein initialization (required)
 call dein#end()
@@ -71,6 +72,13 @@ set shiftwidth=2
 set softtabstop=2
 set autoindent
 set smartindent
+
+" Enable auto save
+if expand("%:p") =~ 'COMMIT_EDITMSG'
+  let g:auto_save = 0
+else
+  let g:auto_save = 1
+endif
 
 " -----------------------
 " Key maps
