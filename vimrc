@@ -80,6 +80,9 @@ else
   let g:auto_save = 1
 endif
 
+" Do not wrap text
+set nowrap
+
 " -----------------------
 " Key maps
 " -----------------------
