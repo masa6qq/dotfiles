@@ -26,7 +26,7 @@ call dein#add('cohama/lexima.vim')
 call dein#add('tpope/vim-endwise')
 call dein#add('tpope/vim-rails')
 call dein#add('scrooloose/nerdtree')
-all dein#add('907th/vim-auto-save')
+call dein#add('907th/vim-auto-save')
 
 " Finish Dein initialization (required)
 call dein#end()
