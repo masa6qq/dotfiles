@@ -68,15 +68,18 @@ set smartindent
 
 " Enable auto save
 if expand("%:p") =~ 'COMMIT_EDITMSG'
-  let g:auto_save = 0
+ let g:auto_save = 0
 else
-  let g:auto_save = 1
+ let g:auto_save = 1
 endif
 
 " Do not wrap text
 set nowrap
 
 filetype plugin indent on
+
+" Disable auto comment out when add line
+set formatoptions-=ro
 
 " -----------------------
 " Key maps
@@ -94,3 +97,22 @@ inoremap <silent> jj <ESC>
 
 " Set NERDTree
 nnoremap <C-n> :NERDTreeToggle<CR>
+
+" Command line window
+cnoremap <C-A> <Home>
+cnoremap <C-F> <Right>
+cnoremap <C-B> <Left>
+cnoremap <Esc>b <S-Left>
+cnoremap <Esc>f <S-Right>
+
+" -----------------------
+" matchit
+" -----------------------
+
+" Enable
+packadd! matchit
+
+let b:match_words = '\<if\>:\<endif\>,'
+      \ . '\<while\>:\<continue\>:\<break\>:\<endwhile\>,'
+      \ . '\<if\>:\<end\>,'
+      \ . '\<do\>:\<end\>'
