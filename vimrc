@@ -88,9 +88,14 @@ set formatoptions-=ro
 " Show files
 nnoremap <C-p> :FZF<CR>
 
-" Set left and right keys in insert mode
+" Set emacs key binds when insert mode
 inoremap <C-b> <Left>
 inoremap <C-f> <Right>
+inoremap <C-a> <C-o>^
+inoremap <C-e> <C-o>$
+inoremap <C-k> <C-o>d$
+
+inoremap <C-j> <C-o>o
 
 " Set jj as ESC
 inoremap <silent> jj <ESC>
