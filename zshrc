@@ -1,5 +1,8 @@
-# Left Prompt
+# --------------------
+# Prompt
+# --------------------
 
+# Left Prompt
 function left_prompt {
   if [ $(echo $?) = 0 ]; then
     color_code=015
@@ -50,4 +53,17 @@ setopt prompt_subst
 # Right Prompt
 RPROMPT='`rprompt_git_current_branch`'
 
+# --------------------
+# Packages
+# --------------------
+
+# FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# rbenv
+eval "$(~/.rbenv/bin/rbenv init - zsh)"
