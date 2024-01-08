@@ -19,14 +19,25 @@ call dein#add(s:dein_src)
 " Your plugins go here:
 "call dein#add('Shougo/neosnippet.vim')
 "call dein#add('Shougo/neosnippet-snippets')
+
+" General
 call dein#add('ayu-theme/ayu-vim')
 call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 }) 
 call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
-call dein#add('cohama/lexima.vim')
-call dein#add('tpope/vim-endwise')
-call dein#add('tpope/vim-rails')
 call dein#add('scrooloose/nerdtree')
 call dein#add('907th/vim-auto-save')
+call dein#add('cohama/lexima.vim')
+call dein#add('tpope/vim-endwise')
+
+" Ruby / Rails
+call dein#add('tpope/vim-rails')
+
+" HTML / JavaScript / TypeScript
+call dein#add('pangloss/vim-javascript')
+call dein#add('othree/yajs.vim')
+call dein#add('othree/html5.vim')
+call dein#add('MaxMEllon/vim-jsx-pretty')
+
 
 " Finish Dein initialization (required)
 call dein#end()
@@ -80,6 +91,7 @@ filetype plugin indent on
 
 " Disable auto comment out when add line
 set formatoptions-=ro
+autocmd FileType * setlocal formatoptions-=ro
 
 " -----------------------
 " Key maps
