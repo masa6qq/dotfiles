@@ -28,6 +28,7 @@ call dein#add('scrooloose/nerdtree')
 call dein#add('907th/vim-auto-save')
 call dein#add('cohama/lexima.vim')
 call dein#add('tpope/vim-endwise')
+call dein#add('prabirshrestha/asyncomplete.vim')
 
 " Ruby / Rails
 call dein#add('tpope/vim-rails')
@@ -38,6 +39,9 @@ call dein#add('othree/yajs.vim')
 call dein#add('othree/html5.vim')
 call dein#add('MaxMEllon/vim-jsx-pretty')
 
+" LSP
+call dein#add('prabirshrestha/vim-lsp')
+call dein#add('mattn/vim-lsp-settings')
 
 " Finish Dein initialization (required)
 call dein#end()
@@ -93,6 +97,13 @@ filetype plugin indent on
 set formatoptions-=ro
 autocmd FileType * setlocal formatoptions-=ro
 
+" 自動で入力補完ポップアップを表示する設定
+let g:asyncomplete_auto_popup = 1
+let g:asyncomplete_auto_completeopt = 1
+
+" ポップアップを表示するまでのディレイ
+let g:asyncomplete_popup_delay = 200
+
 " -----------------------
 " Key maps
 " -----------------------
@@ -100,13 +111,7 @@ autocmd FileType * setlocal formatoptions-=ro
 " Show files
 nnoremap <C-p> :FZF<CR>
 
-" Set emacs key binds when insert mode
-inoremap <C-b> <Left>
-inoremap <C-f> <Right>
-inoremap <C-a> <C-o>^
-inoremap <C-e> <C-o>$
-inoremap <C-k> <C-o>d$
-
+" New line
 inoremap <C-j> <C-o>o
 
 " Set jj as ESC
@@ -133,3 +138,9 @@ let b:match_words = '\<if\>:\<endif\>,'
       \ . '\<while\>:\<continue\>:\<break\>:\<endwhile\>,'
       \ . '\<if\>:\<end\>,'
       \ . '\<do\>:\<end\>'
+
+
+" -----------------------
+" LSP
+" -----------------------
+
