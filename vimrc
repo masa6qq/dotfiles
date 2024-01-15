@@ -104,6 +104,12 @@ let g:asyncomplete_auto_completeopt = 1
 " ポップアップを表示するまでのディレイ
 let g:asyncomplete_popup_delay = 200
 
+" Show highlight search
+set hlsearch
+
+" Show hitted count
+set shortmess-=S
+
 " -----------------------
 " Key maps
 " -----------------------
