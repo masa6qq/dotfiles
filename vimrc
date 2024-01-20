@@ -110,6 +110,13 @@ set hlsearch
 " Show hitted count
 set shortmess-=S
 
+" Set multiple cursor shapes
+if has('vim_starting')
+  let &t_SI .= "\e[6 q"
+  let &t_EI .= "\e[2 q"
+  let &t_SR .= "\e[4 q"
+endif
+
 " -----------------------
 " Key maps
 " -----------------------
@@ -145,8 +152,13 @@ let b:match_words = '\<if\>:\<endif\>,'
       \ . '\<if\>:\<end\>,'
       \ . '\<do\>:\<end\>'
 
-
 " -----------------------
 " LSP
 " -----------------------
+
+let g:lsp_diagnostics_echo_cursor = 1
+let g:lsp_diagnostics_echo_delay = 200
+let g:lsp_diagnostics_virtual_text_enabled = 0
+let g:lsp_diagnostics_signs_enabled = 1
+let g:lsp_settings_filetype_ruby = ['solargraph']
 
