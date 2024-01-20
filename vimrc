@@ -97,15 +97,9 @@ filetype plugin indent on
 set formatoptions-=ro
 autocmd FileType * setlocal formatoptions-=ro
 
-" 自動で入力補完ポップアップを表示する設定
-let g:asyncomplete_auto_popup = 1
-let g:asyncomplete_auto_completeopt = 1
-
-" ポップアップを表示するまでのディレイ
-let g:asyncomplete_popup_delay = 200
-
 " Show highlight search
 set hlsearch
+set incsearch
 
 " Show hitted count
 set shortmess-=S
@@ -156,9 +150,13 @@ let b:match_words = '\<if\>:\<endif\>,'
 " LSP
 " -----------------------
 
+let g:asyncomplete_auto_popup = 1
+let g:asyncomplete_auto_completeopt = 1
+let g:asyncomplete_popup_delay = 200
+
 let g:lsp_diagnostics_echo_cursor = 1
 let g:lsp_diagnostics_echo_delay = 200
 let g:lsp_diagnostics_virtual_text_enabled = 0
 let g:lsp_diagnostics_signs_enabled = 1
 let g:lsp_settings_filetype_ruby = ['solargraph']
-
+let g:lsp_settings_filetype_typescript = ['deno']
