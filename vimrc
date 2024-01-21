@@ -111,6 +111,9 @@ if has('vim_starting')
   let &t_SR .= "\e[4 q"
 endif
 
+" Always show hidden files in NERDTree
+let NERDTreeShowHidden=1
+
 " -----------------------
 " Key maps
 " -----------------------
