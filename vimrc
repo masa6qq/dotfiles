@@ -122,7 +122,7 @@ let NERDTreeShowHidden=1
 nnoremap <C-p> :FZF<CR>
 
 " New line
-inoremap <C-j> <C-o>o
+inoremap <C-j> <ESC>$o
 
 " Set jj as ESC
 inoremap <silent> jj <ESC>
