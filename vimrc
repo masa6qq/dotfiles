@@ -166,3 +166,5 @@ let g:lsp_diagnostics_virtual_text_enabled = 0
 let g:lsp_diagnostics_signs_enabled = 1
 let g:lsp_settings_filetype_ruby = ['solargraph']
 let g:lsp_settings_filetype_typescript = ['typescript-language-server']
+
+let g:lsp_log_verbose = 0
