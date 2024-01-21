@@ -134,6 +134,9 @@ cnoremap <C-B> <Left>
 cnoremap <Esc>b <S-Left>
 cnoremap <Esc>f <S-Right>
 
+" LSP
+nnoremap gd :LspDefinition<CR>
+
 " -----------------------
 " matchit
 " -----------------------
@@ -159,4 +162,4 @@ let g:lsp_diagnostics_echo_delay = 200
 let g:lsp_diagnostics_virtual_text_enabled = 0
 let g:lsp_diagnostics_signs_enabled = 1
 let g:lsp_settings_filetype_ruby = ['solargraph']
-let g:lsp_settings_filetype_typescript = ['deno']
+let g:lsp_settings_filetype_typescript = ['typescript-language-server']
