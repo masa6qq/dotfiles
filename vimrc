@@ -43,6 +43,10 @@ call dein#add('MaxMEllon/vim-jsx-pretty')
 call dein#add('prabirshrestha/vim-lsp')
 call dein#add('mattn/vim-lsp-settings')
 
+" Git
+call dein#add('airblade/vim-gitgutter')
+call dein#add('tpope/vim-fugitive')
+
 " Finish Dein initialization (required)
 call dein#end()
 
