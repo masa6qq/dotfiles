@@ -3,10 +3,10 @@
 set nocompatible
 
 " Set Dein base path (required)
-let s:dein_base = '/Users/masakimurakami/.local/share/dein'
+let s:dein_base = '~/.local/share/dein'
 
 " Set Dein source path (required)
-let s:dein_src = '/Users/masakimurakami/.local/share/dein/repos/github.com/Shougo/dein.vim'
+let s:dein_src = '~/.local/share/dein/repos/github.com/Shougo/dein.vim'
 
 " Set Dein runtime path (required)
 execute 'set runtimepath+=' . s:dein_src
@@ -169,6 +169,12 @@ let g:lsp_diagnostics_echo_delay = 200
 let g:lsp_diagnostics_virtual_text_enabled = 0
 let g:lsp_diagnostics_signs_enabled = 1
 let g:lsp_settings_filetype_ruby = ['solargraph']
-let g:lsp_settings_filetype_typescript = ['typescript-language-server']
+let g:lsp_settings_filetype_javascript = ['typescript-language-server', 'eslint-language-server']
+let g:lsp_settings_filetype_javascriptreact = ['typescript-language-server', 'eslint-language-server']
+let g:lsp_settings_filetype_typescript = ['typescript-language-server', 'eslint-language-server']
+let g:lsp_settings_filetype_typescriptreact = ['typescript-language-server', 'eslint-language-server']
+let g:lsp_settings_filetype_html = ['html-languageserver', 'tailwindcss-intellisense']
+let g:lsp_settings_filetype_css = ['css-languageserver', 'tailwindcss-intellisense']
+let g:lsp_settings_filetype_scss = ['css-languageserver', 'tailwindcss-intellisense']
 
 let g:lsp_log_verbose = 0
