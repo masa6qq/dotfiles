@@ -8,7 +8,7 @@ end
 
 -- General
 config.native_macos_fullscreen_mode = true
-config.color_scheme = 'Macintosh (base16)'
+config.color_scheme = 'ayu'
 
 -- Background color
 config.window_background_opacity = 0.90
@@ -23,7 +23,9 @@ config.use_fancy_tab_bar = false
 -- Font 
 config.font = wezterm.font_with_fallback ({
   { family = "SF Mono", weight = "Light", style = "Normal" },
-  { family = "Apple Color Emoji", weight = "Regular" }
+  { family = "Osaka" },
+  { family = "Apple Color Emoji", weight = "Regular" },
+  { family = "Apple Symbols" }
 })
 config.font_size = 12
 config.line_height = 1.2
