@@ -29,6 +29,7 @@ call dein#add('907th/vim-auto-save')
 call dein#add('cohama/lexima.vim')
 call dein#add('tpope/vim-endwise')
 call dein#add('prabirshrestha/asyncomplete.vim')
+call dein#add('prabirshrestha/asyncomplete-lsp.vim')
 
 " Ruby / Rails
 call dein#add('tpope/vim-rails')
@@ -53,6 +54,7 @@ call dein#end()
 " Enable syntax highlighting
 if has('syntax')
   syntax on
+  set re=0
 endif
 
 " Uncomment if you want to install not-installed plugins on startup.
@@ -105,7 +107,7 @@ autocmd FileType * setlocal formatoptions-=ro
 set hlsearch
 set incsearch
 
-" Show hitted count
+" Show hit count
 set shortmess-=S
 
 " Set multiple cursor shapes
@@ -168,7 +170,7 @@ let g:lsp_diagnostics_echo_cursor = 1
 let g:lsp_diagnostics_echo_delay = 200
 let g:lsp_diagnostics_virtual_text_enabled = 0
 let g:lsp_diagnostics_signs_enabled = 1
-let g:lsp_settings_filetype_ruby = ['solargraph']
+let g:lsp_settings_filetype_ruby = ['ruby-lsp', 'solargraph']
 let g:lsp_settings_filetype_javascript = ['typescript-language-server', 'eslint-language-server']
 let g:lsp_settings_filetype_javascriptreact = ['typescript-language-server', 'eslint-language-server']
 let g:lsp_settings_filetype_typescript = ['typescript-language-server', 'eslint-language-server']
