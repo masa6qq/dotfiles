@@ -4,26 +4,10 @@ bindkey -e
 # Prompt
 # --------------------
 
-# Left Prompt
-function left_prompt {
-  if [ $(echo $?) = 0 ]; then
-    color_code=015
-  else
-    color_code=208
-  fi
-
-  echo "%F{${color_code}}%D %T | %~ ~$ %f"
-}
-
-PROMPT='`left_prompt`'
-
-
-# Display git branch names with color
-function rprompt_git_current_branch {
+function show_git_branch {
   local branch_name st status_color
  
   if [ ! -e ".git" ]; then
-    # Not git managed.
     return
   fi
   branch_name=`git rev-parse --abbrev-ref HEAD 2> /dev/null`
@@ -46,14 +30,21 @@ function rprompt_git_current_branch {
     status_color="%F{blue}"
   fi
 
-  echo "${status_color}${branch_name}%f"
+  echo "${status_color}@${branch_name}%f"
 }
- 
-# Referencing variables
-setopt prompt_subst
- 	
-# Right Prompt
-RPROMPT='`rprompt_git_current_branch`'
+
+function show_prompt {
+  if [ $(echo $?) = 0 ]; then
+    color_code=007
+  else
+    color_code=009
+  fi
+
+  echo "\n%F{${color_code}}%~%f $(show_git_branch)\n%F{250}>%f "
+}
+
+PROMPT='$(show_prompt)'
+
 
 # --------------------
 # Packages
