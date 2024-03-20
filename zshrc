@@ -15,7 +15,7 @@ function show_git_branch {
   st=`git status 2> /dev/null`
   if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
     # Already committed
-    status_color="%F{010}"
+    status_color="%F{014}"
   elif [[ -n `echo "$st" | grep "^Untracked files"` ]]; then
     status_color="%F{009}"
   elif [[ -n `echo "$st" | grep "^Changes not staged for commit"` ]]; then
