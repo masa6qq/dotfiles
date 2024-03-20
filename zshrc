@@ -17,9 +17,9 @@ function show_git_branch {
     # Already committed
     status_color="%F{010}"
   elif [[ -n `echo "$st" | grep "^Untracked files"` ]]; then
-    status_color="%F{005}"
+    status_color="%F{009}"
   elif [[ -n `echo "$st" | grep "^Changes not staged for commit"` ]]; then
-    status_color="%F{005}"
+    status_color="%F{009}"
   elif [[ -n `echo "$st" | grep "^Changes to be committed"` ]]; then
     status_color="%F{011}"
   elif [[ -n `echo "$st" | grep "^rebase in progress"` ]]; then
@@ -35,10 +35,14 @@ function show_git_branch {
 }
 
 function show_prompt {
-  if [ $(echo $?) = 0 ]; then
+  prev_exit_code=$(echo $?)
+
+  if [ $prev_exit_code = 0 ]; then
     color_code=007
+  elif [ $prev_exit_code = 127 ]; then
+    color_code=011
   else
-    color_code=005
+    color_code=009
   fi
 
   echo "\n%F{${color_code}}%~%f $(show_git_branch)\n%F{250}>%f "
