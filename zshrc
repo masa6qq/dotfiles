@@ -1,8 +1,9 @@
 bindkey -e
 
-# --------------------
 # Prompt
-# --------------------
+
+## Referencing variables
+setopt prompt_subst
 
 function show_git_branch {
   local branch_name st status_color
@@ -45,20 +46,15 @@ function show_prompt {
 
 PROMPT='$(show_prompt)'
 
-# Referencing variables
-setopt prompt_subst
-
-# --------------------
 # Packages
-# --------------------
 
-# FZF
+## FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# pyenv
+## pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-# rbenv
+## rbenv
 eval "$(~/.rbenv/bin/rbenv init - zsh)"
