@@ -7,7 +7,7 @@ setopt prompt_subst
 
 function show_git_branch {
   local branch_name st status_color
- 
+
   if [ ! -e ".git" ]; then
     return
   fi
@@ -17,14 +17,14 @@ function show_git_branch {
     # Already committed
     status_color="%F{014}"
   elif [[ -n `echo "$st" | grep "^Untracked files"` ]]; then
-    status_color="%F{009}"
+    status_color="%F{013}"
   elif [[ -n `echo "$st" | grep "^Changes not staged for commit"` ]]; then
-    status_color="%F{009}"
+    status_color="%F{013}"
   elif [[ -n `echo "$st" | grep "^Changes to be committed"` ]]; then
     status_color="%F{011}"
   elif [[ -n `echo "$st" | grep "^rebase in progress"` ]]; then
     # Conflicts occur
-    echo "%F{009}no branch%f"
+    echo "%F{013}no branch%f"
     return
   else
     # other cases
@@ -45,7 +45,7 @@ function show_prompt {
     color_code=009
   fi
 
-  echo "\n%F{${color_code}}%~%f $(show_git_branch)\n%F{250}>%f "
+  echo "\n%B%F{${color_code}}%~%f $(show_git_branch)\n%F{250}>%f%b "
 }
 
 PROMPT='$(show_prompt)'
