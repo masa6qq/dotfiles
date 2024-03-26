@@ -1,5 +1,41 @@
 bindkey -e
 
+# zplug
+
+source ~/.zplug/init.zsh
+
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+
+zplug "zsh-users/zsh-syntax-highlighting"
+zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-completions"
+
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+  printf "Install? [y/N]: "
+  if read -q; then
+    echo; zplug install
+  fi
+fi
+
+# Then, source plugins and add commands to $PATH
+zplug load
+
+
+# Packages
+
+## FZF
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+## pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+## rbenv
+eval "$(~/.rbenv/bin/rbenv init - zsh)"
+
+
 # Prompt
 
 ## Referencing variables
@@ -49,16 +85,3 @@ function show_prompt {
 }
 
 PROMPT='$(show_prompt)'
-
-# Packages
-
-## FZF
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-## pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
-## rbenv
-eval "$(~/.rbenv/bin/rbenv init - zsh)"
