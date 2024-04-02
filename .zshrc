@@ -38,6 +38,9 @@ eval "$(pyenv init -)"
 ## rbenv
 eval "$(~/.rbenv/bin/rbenv init - zsh)"
 
+## Go
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
 
 # Prompt
 
