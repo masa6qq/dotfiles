@@ -48,6 +48,9 @@ call dein#add('mattn/vim-lsp-settings')
 call dein#add('airblade/vim-gitgutter')
 call dein#add('tpope/vim-fugitive')
 
+" Other
+call dein#add('mattn/vim-starwars')
+
 " Finish Dein initialization (required)
 call dein#end()
 
@@ -87,12 +90,18 @@ set softtabstop=2
 set autoindent
 set smartindent
 
+" do not display the auto-save notification
+let g:auto_save_silent = 1
+
 " Enable auto save
 if expand("%:p") =~ 'COMMIT_EDITMSG'
  let g:auto_save = 0
 else
  let g:auto_save = 1
 endif
+
+" Auto read when modify editing file
+set autoread
 
 " Do not wrap text
 set nowrap
@@ -170,7 +179,7 @@ let g:lsp_diagnostics_echo_cursor = 1
 let g:lsp_diagnostics_echo_delay = 200
 let g:lsp_diagnostics_virtual_text_enabled = 0
 let g:lsp_diagnostics_signs_enabled = 1
-let g:lsp_settings_filetype_ruby = ['ruby-lsp', 'solargraph']
+let g:lsp_settings_filetype_ruby = ['solargraph', 'rubocop-lsp-mode']
 let g:lsp_settings_filetype_javascript = ['typescript-language-server', 'eslint-language-server']
 let g:lsp_settings_filetype_javascriptreact = ['typescript-language-server', 'eslint-language-server']
 let g:lsp_settings_filetype_typescript = ['typescript-language-server', 'eslint-language-server']
@@ -178,5 +187,7 @@ let g:lsp_settings_filetype_typescriptreact = ['typescript-language-server', 'es
 let g:lsp_settings_filetype_html = ['html-languageserver', 'tailwindcss-intellisense']
 let g:lsp_settings_filetype_css = ['css-languageserver', 'tailwindcss-intellisense']
 let g:lsp_settings_filetype_scss = ['css-languageserver', 'tailwindcss-intellisense']
+let g:lsp_settings_filetype_sql = ['sql-language-server']
+let g:lsp_settings_filetype_yaml = ['yaml-language-server']
 
 let g:lsp_log_verbose = 0
