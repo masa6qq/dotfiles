@@ -30,6 +30,8 @@ call dein#add('cohama/lexima.vim')
 call dein#add('tpope/vim-endwise')
 call dein#add('prabirshrestha/asyncomplete.vim')
 call dein#add('prabirshrestha/asyncomplete-lsp.vim')
+call dein#add('vim-airline/vim-airline')
+call dein#add('vim-airline/vim-airline-themes')
 
 " Ruby / Rails
 call dein#add('tpope/vim-rails')
@@ -74,6 +76,13 @@ let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 let ayucolor="dark"
 colorscheme ayu
+
+let g:airline_theme='ayu_mirage'
+let g:airline_powerline_fonts = 1
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
 
 " -----------------------
 " Settings
