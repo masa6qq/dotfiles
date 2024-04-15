@@ -25,7 +25,6 @@ call dein#add('ayu-theme/ayu-vim')
 call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 }) 
 call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
 call dein#add('scrooloose/nerdtree')
-call dein#add('907th/vim-auto-save')
 call dein#add('cohama/lexima.vim')
 call dein#add('tpope/vim-endwise')
 call dein#add('prabirshrestha/asyncomplete.vim')
@@ -77,7 +76,7 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 let ayucolor="dark"
 colorscheme ayu
 
-let g:airline_theme='ayu_mirage'
+let g:airline_theme='ayu_dark'
 let g:airline_powerline_fonts = 1
 let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
@@ -98,16 +97,6 @@ set shiftwidth=2
 set softtabstop=2
 set autoindent
 set smartindent
-
-" do not display the auto-save notification
-let g:auto_save_silent = 1
-
-" Enable auto save
-if expand("%:p") =~ 'COMMIT_EDITMSG'
- let g:auto_save = 0
-else
- let g:auto_save = 1
-endif
 
 " Auto read when modify editing file
 set autoread
