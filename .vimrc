@@ -88,6 +88,17 @@ let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
 let g:airline_symbols.readonly = '[ro]'
 
+" Add command line status colors
+let g:airline_theme_patch_func = 'AirlineThemePatch'
+function! AirlineThemePatch(palette)
+  if g:airline_theme == 'ayu_dark'
+    let l:CL1 = [ '#3D424D' , '#D2A6FF' , 59  , 183 ]
+    let l:CL2 = [ '#D2A6FF' , '#304357' , 183  , 59 ]
+    let l:CL3 = [ '#B3B1AD' , '#0A0E14' , 145 , 16 ]
+    let a:palette.commandline = airline#themes#generate_color_map(l:CL1, l:CL2, l:CL3)
+  endif
+endfunction
+
 " -----------------------
 " Settings
 " -----------------------
