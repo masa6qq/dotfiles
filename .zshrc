@@ -48,14 +48,18 @@ export PATH=$PATH:$GOPATH/bin
 setopt prompt_subst
 
 function show_git_branch {
-  local branch_name st status_color
+  local is_inside_work_tree branch_name st status_color
 
-  if [ ! -e ".git" ]; then
+  is_inside_work_tree=`git rev-parse --is-inside-work-tree 2>/dev/null`
+  if [ "$is_inside_work_tree" != "true" ]; then
     return
   fi
-  branch_name=`git rev-parse --abbrev-ref HEAD 2> /dev/null`
-  st=`git status 2> /dev/null`
-  if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
+
+  branch_name=`git rev-parse --abbrev-ref HEAD 2>/dev/null`
+  st=`git status 2>/dev/null`
+  if [ ! -e ".git" ]; then
+    status_color="%F{246}"
+  elif [[ -n `echo "$st" | grep "^nothing to"` ]]; then
     # Already committed
     status_color="%F{014}"
   elif [[ -n `echo "$st" | grep "^Untracked files"` ]]; then
