@@ -106,6 +106,10 @@ endfunction
 " Show line numbers
 set number
 
+" Show cursor column, line
+set cuc
+set cul
+
 " Tab
 set expandtab
 set tabstop=2
@@ -158,6 +162,9 @@ inoremap <silent> jj <ESC>
 
 " Set NERDTree
 nnoremap <C-n> :NERDTreeToggle<CR>
+
+" Hide hlsearch when do C-l
+nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
 " Command line window
 cnoremap <C-A> <Home>
