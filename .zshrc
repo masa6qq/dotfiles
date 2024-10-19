@@ -54,6 +54,7 @@ function show_git_branch {
   if [ "$is_inside_work_tree" != "true" ]; then
     return
   fi
+  local topdir=$(git rev-parse --show-toplevel 2>/dev/null)
 
   branch_name=`git rev-parse --abbrev-ref HEAD 2>/dev/null`
   st=`git status 2>/dev/null`
@@ -77,7 +78,11 @@ function show_git_branch {
     status_color="%F{004}"
   fi
 
-  echo "${status_color}@${branch_name}%f"
+  if [ -d $topdir/.git/rebase-merge ]; then
+    echo "${status_color}@${branch_name}%f %F{011}!Rebasing%f"
+  else
+    echo "${status_color}@${branch_name}%f"
+  fi
 }
 
 function show_prompt {
