@@ -177,6 +177,13 @@ cnoremap <Esc>f <S-Right>
 nnoremap gd :LspDefinition<CR>
 
 " -----------------------
+" Custom commands
+" -----------------------
+
+" Copy path to clipboard
+command Cp let @* = expand('%')
+
+" -----------------------
 " matchit
 " -----------------------
 
