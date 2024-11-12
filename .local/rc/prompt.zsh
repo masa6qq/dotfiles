@@ -32,11 +32,11 @@ function show_git_branch {
   fi
 
   if [ -d $topdir/.git/rebase-merge ]; then
-    rebasing=' ##'
+    rebasing=' !~'
   fi
 
   if git rev-parse --verify --quiet refs/stash >/dev/null; then
-    has_stash=' $$'
+    has_stash=' **'
   fi
 
   echo "${status_color}@${branch_name}${rebasing}${has_stash}%f"
