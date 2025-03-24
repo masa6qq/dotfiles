@@ -1,0 +1,28 @@
+#!/bin/bash
+
+if ! type tmux > /dev/null 2>&1; then
+  echo 'tmux not found'
+  exit 0
+fi
+
+tmux has -t pg 2>/dev/null
+
+if [ $? != 0 ]; then
+  cd ~/Desktop
+  tmux new -d -s pg
+fi
+
+SESSIONS="" # Fill sessions
+
+for session in $SESSIONS; do
+  tmux has -t $session 2>/dev/null
+  if [ $? == 0 ]; then break; fi
+
+  cd ~/Development/$session
+  tmux new -d -s $session -n git
+  tmux new-window -d -t $session -n vim
+  tmux new-window -d -t $session -n server
+  tmux new-window -d -t $session -n pg
+done
+
+tmux a -t pg
