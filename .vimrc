@@ -29,8 +29,7 @@ call dein#add('cohama/lexima.vim')
 call dein#add('tpope/vim-endwise')
 call dein#add('prabirshrestha/asyncomplete.vim')
 call dein#add('prabirshrestha/asyncomplete-lsp.vim')
-call dein#add('vim-airline/vim-airline')
-call dein#add('vim-airline/vim-airline-themes')
+call dein#add('itchyny/lightline.vim')
 
 " Ruby / Rails
 call dein#add('tpope/vim-rails')
@@ -76,28 +75,27 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 let ayucolor="dark"
 colorscheme ayu
 
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
+" -----------------------
+" lightline
+" -----------------------
+
+set laststatus=2
+
+if !has('gui_running')
+  set t_Co=256
 endif
 
-let g:airline_theme='ayu_dark'
-let g:airline_powerline_fonts = 1
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.readonly = '[ro]'
-
-" Add command line status colors
-let g:airline_theme_patch_func = 'AirlineThemePatch'
-function! AirlineThemePatch(palette)
-  if g:airline_theme == 'ayu_dark'
-    let l:CL1 = [ '#3D424D' , '#D2A6FF' , 59  , 183 ]
-    let l:CL2 = [ '#D2A6FF' , '#304357' , 183  , 59 ]
-    let l:CL3 = [ '#B3B1AD' , '#0A0E14' , 145 , 16 ]
-    let a:palette.commandline = airline#themes#generate_color_map(l:CL1, l:CL2, l:CL3)
-  endif
-endfunction
+set noshowmode
+let g:lightline = {
+      \ 'colorscheme': 'ayu_dark',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
 
 " -----------------------
 " Settings
@@ -182,6 +180,9 @@ nnoremap gd :LspDefinition<CR>
 
 " Copy path to clipboard
 command Cp let @* = expand('%')
+
+" Use very magic
+nnoremap / /\v
 
 " -----------------------
 " matchit
