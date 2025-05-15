@@ -80,17 +80,20 @@ colorscheme ayu
 " -----------------------
 
 set laststatus=2
+set noshowmode
 
 if !has('gui_running')
   set t_Co=256
 endif
 
-set noshowmode
 let g:lightline = {
       \ 'colorscheme': 'ayu_dark',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \             [ 'gitbranch', 'readonly', 'relativepath', 'modified' ] ]
+      \ },
+      \ 'inactive': {
+      \   'left': [['filename', 'modified']], 'right': []
       \ },
       \ 'component_function': {
       \   'gitbranch': 'FugitiveHead'
@@ -137,9 +140,9 @@ set shortmess-=S
 
 " Set multiple cursor shapes
 if has('vim_starting')
-  let &t_SI .= "\e[6 q"
-  let &t_EI .= "\e[2 q"
-  let &t_SR .= "\e[4 q"
+  let &t_SI .= "\e[4 q" " Insert
+  let &t_EI .= "\e[2 q" " Normal
+  let &t_SR .= "\e[4 q" " Replace
 endif
 
 " Always show hidden files in NERDTree
