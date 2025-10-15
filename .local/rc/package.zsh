@@ -1,13 +1,13 @@
 #!/usr/bin/env zsh
 
 # Homebrew
-type brew > /dev/null 2>&1 && export PATH="$(brew --prefix):$PATH"
+export PATH="$(brew --prefix):$PATH"
 
 ## FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 ## pyenv
-type pyenv > /dev/null 2>&1 && eval "$(pyenv init -)"
+eval "$(pyenv init -)"
 
 ## rbenv
 [ -f ~/.rbenv/bin/rbenv ] && eval "$(~/.rbenv/bin/rbenv init - zsh)"
@@ -15,5 +15,12 @@ type pyenv > /dev/null 2>&1 && eval "$(pyenv init -)"
 ## Go
 export PATH=$PATH:$HOME/go/bin
 
-## Volta
-export PATH="$HOME/.volta/bin:$PATH"
+## mise
+eval "$(~/.local/bin/mise activate zsh)"
+
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
+export LIBRARY_PATH=$LIBRARY_PATH:$(brew --prefix zstd)/lib/
+
+export PATH="$HOME/.plenv/bin:$PATH"
+eval "$(plenv init -)"
