@@ -23,7 +23,7 @@ config.use_fancy_tab_bar = false
 -- Font 
 config.font = wezterm.font_with_fallback ({
   { family = "SF Mono", weight = "Light", style = "Normal" },
-  { family = "Osaka" },
+  { family = "YuGothic" },
   { family = "Apple Color Emoji", weight = "Regular" },
   { family = "Apple Symbols" }
 })
