@@ -27,8 +27,6 @@ call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
 call dein#add('scrooloose/nerdtree')
 call dein#add('cohama/lexima.vim')
 call dein#add('tpope/vim-endwise')
-call dein#add('prabirshrestha/asyncomplete.vim')
-call dein#add('prabirshrestha/asyncomplete-lsp.vim')
 call dein#add('itchyny/lightline.vim')
 
 " Ruby / Rails
@@ -50,6 +48,7 @@ call dein#add('tpope/vim-fugitive')
 
 " Other
 call dein#add('mattn/vim-starwars')
+call dein#add('github/copilot.vim')
 
 " Finish Dein initialization (required)
 call dein#end()
@@ -148,6 +147,10 @@ endif
 " Always show hidden files in NERDTree
 let NERDTreeShowHidden=1
 
+" Set opacity for pum, menu
+set pumopt=opacity:80
+set completepopup=opacity:80
+
 " -----------------------
 " Key maps
 " -----------------------
@@ -198,6 +201,33 @@ let b:match_words = '\<if\>:\<endif\>,'
       \ . '\<while\>:\<continue\>:\<break\>:\<endwhile\>,'
       \ . '\<if\>:\<end\>,'
       \ . '\<do\>:\<end\>'
+
+" -----------------------
+" fzf
+" -----------------------
+
+" Set opacity for fzf popup
+augroup fzf_opacity
+  autocmd!
+  autocmd FileType fzf call timer_start(0, {-> s:fzf_set_opacity(80)})
+augroup END
+
+function! s:fzf_set_opacity(opacity) abort
+  for id in popup_list()
+    if getbufvar(winbufnr(id), '&filetype') ==# 'fzf'
+      call popup_setoptions(id, #{opacity: a:opacity})
+    endif
+  endfor
+endfunction
+
+" -----------------------
+" copilot
+" -----------------------
+
+imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
+let g:copilot_no_tab_map = v:true
+let g:copilot_node_command = "~/.local/share/mise/installs/node/latest/bin/node"
+let g:copilot_workspace_folders = ["~/Development"]
 
 " -----------------------
 " LSP
