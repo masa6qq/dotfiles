@@ -9,9 +9,6 @@ export PATH="$(brew --prefix):$PATH"
 ## pyenv
 eval "$(pyenv init -)"
 
-## rbenv
-[ -f ~/.rbenv/bin/rbenv ] && eval "$(~/.rbenv/bin/rbenv init - zsh)"
-
 ## Go
 export PATH=$PATH:$HOME/go/bin
 
